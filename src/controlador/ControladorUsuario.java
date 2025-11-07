@@ -3,12 +3,12 @@ package controlador;
 import java.util.ArrayList;
 import modelo.Usuario;
 
-public class ManejarUsuario {
+public class ControladorUsuario {
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     private int contadorId = 1;
 
-    public ManejarUsuario() {
+    public ControladorUsuario() {
     }
 
     public ArrayList<Usuario> getUsuarios() {
@@ -38,7 +38,7 @@ public class ManejarUsuario {
             return "El email no puede estar vacio.";
         }
 
-        if (email.matches("\"^[\\\\w._%+-]+@[\\\\w.-]+\\\\.[a-zA-Z]{2,6}$\"")) {
+        if (!email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
             return "El formato del email no es valido.";
         }
         if (existeEmail(email)){

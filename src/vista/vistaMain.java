@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import controlador.ManejarUsuario;
-import javax.swing.JOptionPane;
+import controlador.ControladorUsuario;
+import vista.usuarios.VistaUsuario;
 /**
  *
  * @author vina
@@ -30,72 +30,45 @@ public class vistaMain extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lbTitulo = new javax.swing.JLabel();
-        mnuBar = new javax.swing.JMenuBar();
-        mnuArchivo = new javax.swing.JMenu();
-        mitAgregar = new javax.swing.JMenuItem();
-        mitListar = new javax.swing.JMenuItem();
-        mitBuscar = new javax.swing.JMenuItem();
-        mitBorrar = new javax.swing.JMenuItem();
-        mnuOpciones = new javax.swing.JMenu();
-        mitSalir = new javax.swing.JMenuItem();
+        lblTitulo = new javax.swing.JLabel();
+        btnUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbTitulo.setText("Manejador de Usuarios");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitulo.setText("Manejador");
+
+        btnUsuario.setText("Usuario");
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(lbTitulo)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(lblTitulo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(lbTitulo)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblTitulo)
+                .addGap(18, 18, 18)
+                .addComponent(btnUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(369, Short.MAX_VALUE))
         );
-
-        mnuArchivo.setText("Archivo");
-
-        mitAgregar.setText("Agregar");
-        mitAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitAgregarActionPerformed(evt);
-            }
-        });
-        mnuArchivo.add(mitAgregar);
-
-        mitListar.setText("Listar");
-        mnuArchivo.add(mitListar);
-
-        mitBuscar.setText("Buscar");
-        mnuArchivo.add(mitBuscar);
-
-        mitBorrar.setText("Borrar");
-        mnuArchivo.add(mitBorrar);
-
-        mnuBar.add(mnuArchivo);
-
-        mnuOpciones.setText("Opciones");
-
-        mitSalir.setText("Salir");
-        mitSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitSalirActionPerformed(evt);
-            }
-        });
-        mnuOpciones.add(mitSalir);
-
-        mnuBar.add(mnuOpciones);
-
-        setJMenuBar(mnuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,15 +90,12 @@ public class vistaMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
        
-    private void mitSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitSalirActionPerformed
-        System.exit(0);
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        VistaUsuario vistaUsuario = new VistaUsuario(controladorUsuario);
+        vistaUsuario.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_mitSalirActionPerformed
-
-    private void mitAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitAgregarActionPerformed
-        new PantallaAgregar().setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mitAgregarActionPerformed
+    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,15 +133,8 @@ public class vistaMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUsuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbTitulo;
-    private javax.swing.JMenuItem mitAgregar;
-    private javax.swing.JMenuItem mitBorrar;
-    private javax.swing.JMenuItem mitBuscar;
-    private javax.swing.JMenuItem mitListar;
-    private javax.swing.JMenuItem mitSalir;
-    private javax.swing.JMenu mnuArchivo;
-    private javax.swing.JMenuBar mnuBar;
-    private javax.swing.JMenu mnuOpciones;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
