@@ -4,6 +4,8 @@
  */
 package vista.usuarios;
 
+import controlador.ControladorUsuario;
+
 /**
  *
  * @author Patin
@@ -13,8 +15,13 @@ public class panelEditarUsuario extends javax.swing.JPanel {
     /**
      * Creates new form panelEditarUsuario
      */
-    public panelEditarUsuario() {
+    private VistaUsuario vistaPrincipal;
+    private ControladorUsuario controlador;
+    
+    public panelEditarUsuario(VistaUsuario vistaPrincipal, ControladorUsuario controlador) {
         initComponents();
+        this.vistaPrincipal = vistaPrincipal;
+        this.controlador = controlador;
     }
 
     /**
@@ -26,19 +33,139 @@ public class panelEditarUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblId = new javax.swing.JLabel();
+        lblEditarUsuario = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+
+        lblId.setText("ID :");
+
+        lblEditarUsuario.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        lblEditarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEditarUsuario.setText("EDITAR USUARIO");
+        lblEditarUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lblNombre.setText("Nombre :");
+
+        lblEmail.setText("Email :");
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(128, Short.MAX_VALUE)
+                .addComponent(lblEditarUsuario)
+                .addGap(111, 111, 111))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(btnGuardar)
+                        .addGap(55, 55, 55)
+                        .addComponent(btnVolver))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre)
+                            .addComponent(lblId)
+                            .addComponent(lblEmail))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtId)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblEditarUsuario)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblId)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnVolver))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String idTexto = txtId.getText();
+        String nombre = txtNombre.getText();
+        String email = txtEmail.getText();
+
+        
+        if (controlador == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error: No hay lógica conectada con el controlador.",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        int id = Integer.parseInt(idTexto);        
+        
+        String resultado = controlador.editarUsuario(id, nombre, email);
+                
+        if (resultado.equals("Usuario editado correctamente.")) {
+            javax.swing.JOptionPane.showMessageDialog(this, resultado,
+                "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, resultado,
+                "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        vistaPrincipal.mostrarPanel("menu");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel lblEditarUsuario;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
