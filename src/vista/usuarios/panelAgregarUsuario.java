@@ -4,7 +4,7 @@
  */
 package vista.usuarios;
 
-import controlador.ControladorUsuario;
+import controlador.ControladorUsuarios;
 
 /**
  *
@@ -16,10 +16,10 @@ public class panelAgregarUsuario extends javax.swing.JPanel {
      * Creates new form panelAgregarUsuario
      */
     private VistaUsuario vistaPrincipal;
-    private ControladorUsuario controlador;
+    private ControladorUsuarios controlador;
     
   
-    public panelAgregarUsuario(VistaUsuario vistaPrincipal, ControladorUsuario controlador) {
+    public panelAgregarUsuario(VistaUsuario vistaPrincipal, ControladorUsuarios controlador) {
         initComponents();
         this.vistaPrincipal = vistaPrincipal;
         this.controlador = controlador;

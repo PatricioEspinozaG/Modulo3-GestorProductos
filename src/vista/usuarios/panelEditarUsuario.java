@@ -4,7 +4,7 @@
  */
 package vista.usuarios;
 
-import controlador.ControladorUsuario;
+import controlador.ControladorUsuarios;
 
 /**
  *
@@ -16,9 +16,9 @@ public class panelEditarUsuario extends javax.swing.JPanel {
      * Creates new form panelEditarUsuario
      */
     private VistaUsuario vistaPrincipal;
-    private ControladorUsuario controlador;
+    private ControladorUsuarios controlador;
     
-    public panelEditarUsuario(VistaUsuario vistaPrincipal, ControladorUsuario controlador) {
+    public panelEditarUsuario(VistaUsuario vistaPrincipal, ControladorUsuarios controlador) {
         initComponents();
         this.vistaPrincipal = vistaPrincipal;
         this.controlador = controlador;

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import controlador.ControladorUsuario;
+import controlador.ControladorUsuarios;
 import vista.usuarios.VistaUsuario;
 /**
  *
@@ -91,7 +91,7 @@ public class vistaMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
        
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        ControladorUsuarios controladorUsuario = new ControladorUsuarios();
         VistaUsuario vistaUsuario = new VistaUsuario(controladorUsuario);
         vistaUsuario.setVisible(true);
         // TODO add your handling code here:

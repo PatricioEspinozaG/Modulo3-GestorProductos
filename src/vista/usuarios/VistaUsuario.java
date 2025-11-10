@@ -4,7 +4,7 @@
  */
 package vista.usuarios;
 
-import controlador.ControladorUsuario;
+import controlador.ControladorUsuarios;
 /**
  *
  * @author Patin
@@ -16,9 +16,9 @@ public class VistaUsuario extends javax.swing.JFrame {
     /**
      * Creates new form VistaUsuario
      */
-    private ControladorUsuario controlador;
+    private ControladorUsuarios controlador;
     
-    public VistaUsuario(ControladorUsuario controlador) {
+    public VistaUsuario(ControladorUsuarios controlador) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlador = controlador;
@@ -27,7 +27,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     }
     
         // Método para inicializar los paneles del CRUD
-    public void inicializarPaneles(ControladorUsuario controlador) {
+    public void inicializarPaneles(ControladorUsuarios controlador) {
         panelPrincipal.setLayout(new java.awt.CardLayout());
 
         // Agregar los paneles (usa los nombres de tus clases reales)
@@ -156,7 +156,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VistaUsuario(new controlador.ControladorUsuario()).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new VistaUsuario(new controlador.ControladorUsuarios()).setVisible(true));
     }
 
     

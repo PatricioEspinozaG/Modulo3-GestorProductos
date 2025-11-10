@@ -4,7 +4,7 @@
  */
 package vista.usuarios;
 
-import controlador.ControladorUsuario;
+import controlador.ControladorUsuarios;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
@@ -15,13 +15,13 @@ import modelo.Usuario;
 public class panelMenuUsuario extends javax.swing.JPanel {
     
     private VistaUsuario vistaPrincipal;
-    private ControladorUsuario controlador;
+    private ControladorUsuarios controlador;
     private Usuario usuario;
     
     /**
      * Creates new form panelMenu
      */
-    public panelMenuUsuario(VistaUsuario vistaPrincipal, ControladorUsuario controlador) {
+    public panelMenuUsuario(VistaUsuario vistaPrincipal, ControladorUsuarios controlador) {
         initComponents();
         this.vistaPrincipal = vistaPrincipal;
         this.controlador = controlador;

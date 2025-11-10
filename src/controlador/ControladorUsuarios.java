@@ -3,12 +3,12 @@ package controlador;
 import java.util.ArrayList;
 import modelo.Usuario;
 
-public class ControladorUsuario {
+public class ControladorUsuarios {
 
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     private int contadorId = 1;
 
-    public ControladorUsuario() {
+    public ControladorUsuarios() {
     }
 
     public ArrayList<Usuario> getUsuarios() {
