@@ -5,6 +5,8 @@
 package vista.usuarios;
 
 import controlador.ControladorUsuario;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
@@ -14,6 +16,7 @@ public class panelMenuUsuario extends javax.swing.JPanel {
     
     private VistaUsuario vistaPrincipal;
     private ControladorUsuario controlador;
+    private Usuario usuario;
     
     /**
      * Creates new form panelMenu
@@ -34,10 +37,11 @@ public class panelMenuUsuario extends javax.swing.JPanel {
 
         lblGestionUsuarios = new javax.swing.JLabel();
         btnAgregarUsuario = new javax.swing.JButton();
+        btnBuscarUsuario = new javax.swing.JButton();
         btnEditarUsuario = new javax.swing.JButton();
         btnBorrarUsuario = new javax.swing.JButton();
 
-        setLayout(new java.awt.GridLayout(4, 1, 1, 1));
+        setLayout(new java.awt.GridLayout(5, 1, 1, 1));
 
         lblGestionUsuarios.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         lblGestionUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -54,10 +58,28 @@ public class panelMenuUsuario extends javax.swing.JPanel {
         });
         add(btnAgregarUsuario);
 
+        btnBuscarUsuario.setText("Buscar Usuario");
+        btnBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarUsuarioActionPerformed(evt);
+            }
+        });
+        add(btnBuscarUsuario);
+
         btnEditarUsuario.setText("Editar Usuario");
+        btnEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarUsuarioActionPerformed(evt);
+            }
+        });
         add(btnEditarUsuario);
 
         btnBorrarUsuario.setText("Borrar Usuario");
+        btnBorrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarUsuarioActionPerformed(evt);
+            }
+        });
         add(btnBorrarUsuario);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -66,10 +88,57 @@ public class panelMenuUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarUsuarioActionPerformed
 
+    private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
+        String idTexto = JOptionPane.showInputDialog(this,"Ingrese el id del usuario a editar.");
+        
+        if(idTexto == null || idTexto.trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Operacion cancelada o ID vacio.");
+            return;
+        }
+        
+        int id = Integer.parseInt(idTexto);
+        String nuevoNombre = JOptionPane.showInputDialog(this, "Ingrese nuevo nombre");
+        String nuevoEmail = JOptionPane.showInputDialog(this, "Ingrese nuevo mail.");
+              
+        JOptionPane.showMessageDialog(this, controlador.editarUsuario(id, nuevoNombre, nuevoEmail));
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarUsuarioActionPerformed
+
+    private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
+        String emailTexto = JOptionPane.showInputDialog(this,"Ingrese el email, para buscar el usuario.");
+        
+        if(emailTexto == null || emailTexto.trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Operacion cancelada o email vacio.");
+            return; 
+        }
+        
+        JOptionPane.showMessageDialog(this, controlador.obtenerUsuarios(emailTexto));
+
+        
+
+     // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
+
+    private void btnBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarUsuarioActionPerformed
+        String idTexto = JOptionPane.showInputDialog(this,"Ingrese el id del usuario a editar.");
+        
+        if(idTexto == null || idTexto.trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Operacion cancelada o ID vacio.");
+            return;
+        }
+        
+        int id = Integer.parseInt(idTexto);
+        JOptionPane.showMessageDialog(this, controlador.borrarUsuario(id));        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBorrarUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarUsuario;
     private javax.swing.JButton btnBorrarUsuario;
+    private javax.swing.JButton btnBuscarUsuario;
     private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JLabel lblGestionUsuarios;
     // End of variables declaration//GEN-END:variables
