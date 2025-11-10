@@ -56,14 +56,52 @@ public class ControladorUsuario {
         }
         return false;
     }
-        
-    public String obtenerUsuarios() {
-        StringBuilder sb = new StringBuilder();
-        for (Usuario usuario : usuarios) {
-            sb.append(usuario.mostrarInfo()).append("\n");
-
+    
+    public String obtenerUsuarios(String emailTexto) {
+        for (Usuario u : usuarios) {
+            if(u.getEmail().equalsIgnoreCase(emailTexto)){
+                return u.mostrarInfo();
+            }            
         }
-        return sb.toString();
+        return "Usuario no encontrado.";
     }
+    
 
+    public String editarUsuario(int id, String nuevoNombre, String nuevoEmail){
+        for (Usuario u : usuarios) {
+            if(u.getId() == id){
+                u.setId(id);
+                u.setNombre(nuevoNombre);
+                u.setEmail(nuevoEmail);
+                return "Usuario editado correctamente.";
+            }
+        }
+        return "Usuario no encontrado.";
+    }
+    
+    public boolean buscarUsuarioPorId(int id){
+        for (Usuario u : usuarios) {
+            if(u.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    public String borrarUsuario(int id){
+        for (Usuario u : usuarios) {
+            if(u.getId() == id){
+                usuarios.remove(id);
+                return "Uusario eliminado correctamente";
+            }
+            
+        }
+        return "Usuario no encontrado.";
+    }
+    
+         
+    
+    
+    
 }
