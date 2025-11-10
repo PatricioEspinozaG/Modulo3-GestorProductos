@@ -9,5 +9,10 @@ package modelo;
  * @author patoe
  */
 public class Producto {
+    private int id;
+    private String nombre;
+    private int stock;
+    private double precio;
+    
     
 }

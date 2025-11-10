@@ -95,7 +95,13 @@ public class panelMenuUsuario extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Operacion cancelada o ID vacio.");
             return;
         }
-        vistaPrincipal.mostrarPanel("editar");
+        
+        int id = Integer.parseInt(idTexto);
+        if(controlador.buscarUsuarioPorId(id)){
+            vistaPrincipal.mostrarPanel("editar");
+        }else{
+            javax.swing.JOptionPane.showMessageDialog(this, "No existe el usuario.");
+        }
         
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed

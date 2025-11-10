@@ -48,6 +48,7 @@ public class ControladorUsuarios {
         return null;
     }
     
+   
     public boolean existeEmail(String email){
         for (Usuario u : usuarios) {
             if(u.getEmail().equalsIgnoreCase(email)){
@@ -65,10 +66,14 @@ public class ControladorUsuarios {
         }
         return "Usuario no encontrado.";
     }
-    
 
     public String editarUsuario(int id, String nuevoNombre, String nuevoEmail){
         for (Usuario u : usuarios) {
+            String error = validar(nuevoNombre, nuevoEmail);
+            if(error != null){
+                return error;
+            }
+
             if(u.getId() == id){
                 u.setId(id);
                 u.setNombre(nuevoNombre);

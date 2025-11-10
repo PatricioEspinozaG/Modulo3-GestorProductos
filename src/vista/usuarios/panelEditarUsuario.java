@@ -136,8 +136,12 @@ public class panelEditarUsuario extends javax.swing.JPanel {
             return;
         }
         
+        if(idTexto.trim().isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(this, "El id no puede estar vacio.");
+            return;
+        }         
+             
         int id = Integer.parseInt(idTexto);        
-        
         String resultado = controlador.editarUsuario(id, nombre, email);
                 
         if (resultado.equals("Usuario editado correctamente.")) {
