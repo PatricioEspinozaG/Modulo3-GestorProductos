@@ -95,12 +95,7 @@ public class panelMenuUsuario extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Operacion cancelada o ID vacio.");
             return;
         }
-        
-        int id = Integer.parseInt(idTexto);
-        String nuevoNombre = JOptionPane.showInputDialog(this, "Ingrese nuevo nombre");
-        String nuevoEmail = JOptionPane.showInputDialog(this, "Ingrese nuevo mail.");
-              
-        JOptionPane.showMessageDialog(this, controlador.editarUsuario(id, nuevoNombre, nuevoEmail));
+        vistaPrincipal.mostrarPanel("editar");
         
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
@@ -112,7 +107,7 @@ public class panelMenuUsuario extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Operacion cancelada o email vacio.");
             return; 
         }
-        
+
         JOptionPane.showMessageDialog(this, controlador.obtenerUsuarios(emailTexto));
 
         

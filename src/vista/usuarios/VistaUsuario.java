@@ -33,6 +33,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         // Agregar los paneles (usa los nombres de tus clases reales)
         panelPrincipal.add(new vista.usuarios.panelMenuUsuario(this,controlador), "menu");
         panelPrincipal.add(new vista.usuarios.panelAgregarUsuario(this,controlador), "agregar");
+        panelPrincipal.add(new vista.usuarios.panelEditarUsuario(this, controlador),"editar");
         // Luego podrás agregar los demás (editar, borrar, etc.)
     }
 
