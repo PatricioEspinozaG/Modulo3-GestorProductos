@@ -135,9 +135,8 @@ public class panelAgregarUsuario extends javax.swing.JPanel {
 
         if (resultado.equals("Usuario agregado correctamente.")) {
             javax.swing.JOptionPane.showMessageDialog(this, resultado, 
-                    "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            txtNombre.setText("");
-            txtEmail.setText("");
+                "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, resultado, 
                     "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
