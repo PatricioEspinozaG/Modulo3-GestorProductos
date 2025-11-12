@@ -4,6 +4,8 @@
  */
 package vista.productos;
 
+import controlador.ControladorProductos;
+
 /**
  *
  * @author patoe
@@ -15,10 +17,34 @@ public class VistaProductos extends javax.swing.JFrame {
     /**
      * Creates new form VistaProductos
      */
+    private ControladorProductos controlador;
+    
     public VistaProductos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.controlador = controlador;
+        inicializarPaneles(controlador); // 👈 Esto carga los paneles en el CardLayout
+        mostrarPanel("menu"); 
     }
 
+    public void inicializarPaneles(ControladorProductos controlador){
+        panelPrincipalProductos.setLayout(new java.awt.CardLayout());
+        
+        // Agregar los paneles (usa los nombres de tus clases reales)
+        panelPrincipal.add(new vista.usuarios.panelMenuUsuario(this,controlador), "menu");
+        panelPrincipal.add(new vista.usuarios.panelAgregarUsuario(this,controlador), "agregar");
+        panelPrincipal.add(new vista.usuarios.panelEditarUsuario(this, controlador),"editar");
+        // Luego podrás agregar los demás (editar, borrar, etc.)
+    }
+
+    // Método para mostrar un panel por nombre
+    public void mostrarPanel(String nombre) {
+        java.awt.CardLayout cl = (java.awt.CardLayout) panelPrincipal.getLayout();
+        cl.show(panelPrincipal, nombre);
+    }        
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -112,7 +112,9 @@ public class vistaMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-
+        ControladorProductos controladorProducto = new ControladorProductos();
+        VistaProductos vistaProducto = new VistaProductos(controladorProducto);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductosActionPerformed
 
