@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import controlador.ControladorProductos;
 import controlador.ControladorUsuarios;
+import vista.productos.VistaProductos;
 import vista.usuarios.VistaUsuario;
 /**
  *
@@ -110,6 +112,7 @@ public class vistaMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProductosActionPerformed
 
